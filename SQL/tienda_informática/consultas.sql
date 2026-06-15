@@ -26,3 +26,17 @@ SELECT LOWER(nombre),precio FROM producto;
 --Lista el nombre de todos los fabricantes en una columna, y en otra columna obtenga en mayúsculas los dos primeros caracteres del nombre del fabricante.
 
 SELECT nombre,UPPER(LEFT(nombre,2)) FROM fabricante;
+
+--Lista los nombres y los precios de todos los productos de la tabla producto, redondeando el valor del precio.
+
+SELECT nombre, ROUND(precio) FROM producto;
+
+--Lista los nombres y los precios de todos los productos de la tabla producto, truncando el valor del precio para mostrarlo sin ninguna cifra decimal.
+
+SELECT nombre, TRUNCATE(precio,0) FROM producto;
+
+--Lista el identificador de los fabricantes que tienen productos en la tabla producto.
+
+SELECT DISTINCT(fabricante.id) FROM fabricante 
+                               JOIN producto
+                               WHERE fabricante.id = producto.id_fabricante;
