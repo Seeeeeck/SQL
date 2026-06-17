@@ -253,11 +253,11 @@ HAVING SUM(p.precio)>1000
 --El resultado debe tener tres columnas: nombre del producto, precio y nombre del fabricante.
 --El resultado tiene que estar ordenado alfabéticamente de menor a mayor por el nombre del fabricante.
 
-SELECT 
+
+SELECT
 p.nombre AS "Nombre del producto",
-MAX(p.precio) AS "Precio",
-f.nombre AS "Fabricante"
+(SELECT MAX(p.precio) FROM producto p WHERE p.id_fabricante=f.id),
+f.nombre AS "Nombre del fabricante"
 FROM fabricante f
      JOIN producto p
-     ON p.id_fabricante=f.id
-GROUP BY f.id,p.nombre
+     ON p.id_fabricante=f.id;
