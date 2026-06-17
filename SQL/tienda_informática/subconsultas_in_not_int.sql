@@ -1,3 +1,6 @@
+--IN PARA SABER SI UN VALOR EXISTE EN UNA SUBCONSULTA
+--NOT IN PARA SABER SI UN VALOR NO EXISTE EN UNA SUBCONSULTA
+
 --Devuelve los nombres de los fabricantes que tienen
 --productos asociados. (Utilizando IN o NOT IN).
 
