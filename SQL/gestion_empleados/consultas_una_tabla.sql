@@ -106,3 +106,96 @@ LIMIT 2
 
 SELECT * FROM empleado
 LIMIT 2,5
+
+--Devuelve una lista con el nombre de los departamentos
+--y el presupuesto, de aquellos que tienen un presupuesto mayor o igual a 150000 euros.
+
+SELECT nombre,presupuesto FROM departamento
+WHERE presupuesto>=150000;
+
+--Devuelve una lista con el nombre de los departamentos 
+--y el gasto, de aquellos que tienen menos de 5000 euros de gastos.
+
+SELECT nombre, gastos FROM departamento
+WHERE gastos<5000
+
+--Devuelve una lista con el nombre de los departamentos y el presupuesto, 
+--de aquellos que tienen un presupuesto entre 100000 y 200000 euros. Sin utilizar el operador BETWEEN.
+
+SELECT nombre,presupuesto FROM departamento 
+WHERE presupuesto>=100000 AND presupuesto<200000
+
+--Devuelve una lista con el nombre de los departamentos que no
+--tienen un presupuesto entre 100000 y 200000 euros. Sin utilizar el operador BETWEEN.
+
+SELECT nombre ,presupuesto FROM departamento
+WHERE presupuesto<100000 OR presupuesto>200000;
+
+--Devuelve una lista con el nombre de los departamentos que 
+--tienen un presupuesto entre 100000 y 200000 euros. Utilizando el operador BETWEEN.
+
+SELECT nombre FROM departamento
+WHERE presupuesto BETWEEN 100000 AND 200000
+
+
+--Devuelve una lista con el nombre de los departamentos que
+--no tienen un presupuesto entre 100000 y 200000 euros. Utilizando el operador BETWEEN.
+
+SELECT nombre FROM departamento
+WHERE presupuesto NOT BETWEEN 100000 AND 200000
+
+
+--Devuelve una lista con el nombre de los departamentos, gastos y presupuesto,
+--de aquellos departamentos donde los gastos sean mayores que el presupuesto del que disponen.
+
+SELECT nombre,gastos,presupuesto FROM departamento 
+WHERE gastos>presupuesto
+
+
+--Devuelve una lista con el nombre de los departamentos, gastos y presupuesto, 
+--de aquellos departamentos donde los gastos sean menores que el presupuesto del que disponen.
+
+SELECT nombre,gastos,presupuesto FROM departamento 
+WHERE gastos<presupuesto
+
+--Devuelve una lista con el nombre de los departamentos, gastos y presupuesto,
+de aquellos departamentos donde los gastos sean iguales al presupuesto del que disponen.
+
+SELECT nombre,gastos,presupuesto FROM departamento 
+WHERE gastos=presupuesto
+
+
+--Lista todos los datos de los empleados cuyo segundo apellido sea NULL.
+
+SELECT * FROM empleado
+WHERE apellido2 IS NULL
+
+--Lista todos los datos de los empleados cuyo segundo apellido no sea NULL.
+
+SELECT * FROM empleado
+WHERE apellido2 IS NOT NULL
+
+--Lista todos los datos de los empleados cuyo segundo apellido sea López.
+
+SELECT * FROM empleado
+WHERE apellido2 ="López"
+
+--Lista todos los datos de los empleados cuyo segundo apellido sea Díaz o Moreno. Sin utilizar el operador IN.
+
+SELECT * FROM empleado 
+WHERE apellido2 ="Díaz" OR apellido2="Moreno"
+
+--Lista todos los datos de los empleados cuyo segundo apellido sea Díaz o Moreno. Utilizando el operador IN.
+
+SELECT * FROM empleado
+WHERE apellido2 IN ("Díaz","Moreno")
+
+
+--Lista los nombres, apellidos y nif de los empleados que trabajan en el departamento 3.
+
+SELECT nombre,apellido1,apellido2,nif FROM empleado
+WHERE id_departamento =3
+
+--Lista los nombres, apellidos y nif de los empleados que trabajan en los departamentos 2, 4 o 5.
+SELECT nombre,apellido1,apellido2,nif FROM empleado
+WHERE id_departamento IN (2,4,5)
